@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d02k8ngkv3dmv"]
+
+[ext_resource type="Script" uid="uid://soxed540hpcf" path="res://plataforma.gd" id="1_1v4vm"]
+[ext_resource type="Texture2D" uid="uid://ckpufy5bspn02" path="res://Personajes/fghhfgghfhgfhfg.png" id="1_bon5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1v4vm"]
+size = Vector2(38, 6)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=2132673534]
+script = ExtResource("1_1v4vm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=975051879]
+scale = Vector2(0.0550725, 0.164285)
+texture = ExtResource("1_bon5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1390251735]
+shape = SubResource("RectangleShape2D_1v4vm")
+one_way_collision = true

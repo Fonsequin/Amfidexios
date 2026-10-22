@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs3boolap40s3"]
+
+[ext_resource type="Texture2D" uid="uid://b7sghn2qbvr4m" path="res://NicePng_spike-spiegel-png_2287658.png" id="1_kx75o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3o4y2"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_3o4y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(35, -21)
+scale = Vector2(0.197885, 0.219298)
+texture = ExtResource("1_kx75o")

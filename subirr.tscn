@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://h2mf65yqafxf"]
+
+[ext_resource type="PackedScene" path="res://subir.tscn" id="1_mhnii"]
+[ext_resource type="Texture2D" uid="uid://ckpufy5bspn02" path="res://Personajes/fghhfgghfhgfhfg.png" id="2_nyngq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path2D" parent="." instance=ExtResource("1_mhnii")]
+position = Vector2(-22, -27)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D"]
+position = Vector2(514, 502)
+scale = Vector2(0.0934783, 0.22143)
+texture = ExtResource("2_nyngq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]

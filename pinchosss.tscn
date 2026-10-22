@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dx4867kiahm3v"]
+
+[ext_resource type="Texture2D" uid="uid://cj3a53oaksjt0" path="res://Sprites/14-TileSets/pinchos.png" id="1_5rqja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7364"]
+size = Vector2(3, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvhv2"]
+size = Vector2(5, 3)
+
+[sub_resource type="Animation" id="Animation_0jbn3"]
+resource_name = "GZVT"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mnjnt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qopnk"]
+_data = {
+&"GZVT": SubResource("Animation_0jbn3"),
+&"RESET": SubResource("Animation_mnjnt")
+}
+
+[node name="Pincho" type="Node2D" unique_id=105273693]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056793914]
+position = Vector2(6.5, -5)
+scale = Vector2(0.007324218, 0.008559201)
+texture = ExtResource("1_5rqja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=577375944]
+position = Vector2(6.5, -4.5)
+shape = SubResource("RectangleShape2D_m7364")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1822927364]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=960360149]
+position = Vector2(6.5, -4.5)
+shape = SubResource("RectangleShape2D_lvhv2")
+
+[node name="Tiempo" type="Timer" parent="." unique_id=1136956992]
+wait_time = 0.3
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1215666490]
+offset_left = -1221.0
+offset_top = -775.0
+offset_right = 1297.0
+offset_bottom = 682.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1663597847]
+libraries/ = SubResource("AnimationLibrary_qopnk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Tiempo" to="." method="_on_tiempo_timeout"]

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://kwt6eburq2rx"]
+
+[ext_resource type="Texture2D" uid="uid://cj3a53oaksjt0" path="res://Sprites/14-TileSets/pinchos.png" id="1_kofkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kofkl"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3k25"]
+size = Vector2(13.5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq2kj"]
+size = Vector2(11, 4)
+
+[node name="pinchos" type="Node2D" unique_id=2117747556]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=148924538]
+position = Vector2(-2, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1972019420]
+position = Vector2(11, -6.844298)
+scale = Vector2(0.01953125, 0.034681033)
+texture = ExtResource("1_kofkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1026620850]
+position = Vector2(11, -1)
+shape = SubResource("RectangleShape2D_kofkl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=355573808]
+position = Vector2(11, -6)
+shape = SubResource("RectangleShape2D_i3k25")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1155804519]
+position = Vector2(11, -10)
+shape = SubResource("RectangleShape2D_tq2kj")

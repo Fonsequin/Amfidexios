@@ -1,0 +1,173 @@
+[gd_scene load_steps=7 format=3 uid="uid://cryfackliy7mj"]
+
+[sub_resource type="Animation" id="Animation_ms355"]
+resource_name = "GNZ"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barra izq:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0.0627451, 0, 1), Color(0.207843, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Barra izq:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(310, 14), Vector2(0, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_l5nf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barra izq:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(310, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Barra izq:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d1cmk"]
+_data = {
+&"GNZ": SubResource("Animation_ms355"),
+&"RESET": SubResource("Animation_l5nf4")
+}
+
+[sub_resource type="Animation" id="Animation_hhcwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barra der:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Barra der:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(310, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_pc010"]
+resource_name = "VLT"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barra der:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(310, 14), Vector2(0, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Barra der:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0.0392157, 0, 1), Color(0.207843, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2laen"]
+_data = {
+&"RESET": SubResource("Animation_hhcwu"),
+&"VLT": SubResource("Animation_pc010")
+}
+
+[node name="Barra de tiempo" type="Node2D"]
+
+[node name="Fondo1" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 598.0
+offset_right = 866.0
+offset_bottom = 618.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fondo2" type="ColorRect" parent="Fondo1"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 627.0
+offset_bottom = 19.0
+color = Color(0.241156, 0.241156, 0.241156, 1)
+
+[node name="Barra1" type="Node2D" parent="Fondo1"]
+position = Vector2(315, 18)
+rotation = -3.14159
+
+[node name="Barra izq" type="ColorRect" parent="Fondo1/Barra1"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 311.0
+offset_bottom = 15.0
+color = Color(0, 1, 0, 1)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Fondo1/Barra1"]
+libraries = {
+&"": SubResource("AnimationLibrary_d1cmk")
+}
+autoplay = "GNZ"
+
+[node name="Barra2" type="Node2D" parent="Fondo1"]
+position = Vector2(313, 2)
+
+[node name="Barra der" type="ColorRect" parent="Fondo1/Barra2"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 311.0
+offset_bottom = 15.0
+color = Color(0, 1, 0, 1)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Fondo1/Barra2"]
+libraries = {
+&"": SubResource("AnimationLibrary_2laen")
+}
+autoplay = "VLT"
