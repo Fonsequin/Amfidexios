@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyd6g0k2wetfe"]
+
+[ext_resource type="Script" uid="uid://r4ao7ekomag7" path="res://control.gd" id="1_d7jw1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d7jw1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 308.0
+offset_top = -271.0
+offset_right = 836.0
+offset_bottom = -179.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 62
+text = "Seleccion de nivel"
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -122.0
+offset_right = 424.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 290
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Nivel1" type="Button" parent="BoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "  1  "
+
+[node name="Nivel2" type="Button" parent="BoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "2"
+
+[node name="Nivel3" type="Button" parent="BoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Nivel4" type="Button" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "  4  "
+
+[node name="Nivel5" type="Button" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Nivel6" type="Button" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "6"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Nivel7" type="Button" parent="BoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "  7  "
+
+[node name="Nivel8" type="Button" parent="BoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "8"
+
+[node name="Nivel9" type="Button" parent="BoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "9"
+
+[connection signal="pressed" from="BoxContainer/VBoxContainer4/Nivel1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer4/Nivel2" to="." method="_on_nivel_2_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer4/Nivel3" to="." method="_on_nivel_3_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer2/Nivel4" to="." method="_on_nivel_4_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer2/Nivel5" to="." method="_on_nivel_5_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer2/Nivel6" to="." method="_on_nivel_6_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer3/Nivel7" to="." method="_on_nivel_7_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer3/Nivel8" to="." method="_on_nivel_8_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer3/Nivel9" to="." method="_on_nivel_9_pressed"]

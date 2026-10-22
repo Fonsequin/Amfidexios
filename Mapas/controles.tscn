@@ -1,0 +1,404 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnfly0yx7fnid"]
+
+[ext_resource type="Texture2D" uid="uid://cotx2vcf05ref" path="res://SFDDFSFDDFSDFSSDFDSF.png" id="1_a2ilm"]
+
+[sub_resource type="GDScript" id="GDScript_63sw7"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_button_pressed() -> void:
+	$Transiciones/AnimationPlayer.play(\"GONZIII Y C\")
+	$Transiciones/Cronometro.start()
+
+
+func _on_cronometro_timeout() -> void:
+	get_tree().change_scene_to_file(\"res://Mapas/menu.tscn\")
+"
+
+[sub_resource type="Animation" id="Animation_jrkh4"]
+resource_name = "HOLAAA??"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transiciones/ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transiciones/ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_2ruk1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transiciones/ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transiciones/ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0v44m"]
+_data = {
+&"HOLAAA??": SubResource("Animation_jrkh4"),
+&"RESET": SubResource("Animation_2ruk1")
+}
+
+[sub_resource type="Animation" id="Animation_ykfsg"]
+resource_name = "GONZIII Y C"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transiciones/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transiciones/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v0qdf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transiciones/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transiciones/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrkh4"]
+_data = {
+&"GONZIII Y C": SubResource("Animation_ykfsg"),
+&"RESET": SubResource("Animation_v0qdf")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_63sw7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 556.0
+offset_right = 369.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 31
+text = "Volver
+"
+
+[node name="Personaje1" type="Node2D" parent="."]
+
+[node name="W" type="Label" parent="Personaje1"]
+z_index = 1
+offset_left = 234.0
+offset_top = 169.0
+offset_right = 274.0
+offset_bottom = 264.0
+theme_override_font_sizes/font_size = 33
+text = "W
+"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje1/W"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 44.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="A" type="Label" parent="Personaje1"]
+z_index = 1
+offset_left = 170.0
+offset_top = 236.0
+offset_right = 210.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 33
+text = "A
+"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje1/A"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -17.0
+offset_top = -4.0
+offset_right = 41.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="D" type="Label" parent="Personaje1"]
+z_index = 1
+offset_left = 297.0
+offset_top = 236.0
+offset_right = 337.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 33
+text = " D"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje1/D"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 48.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Personaje1"]
+offset_left = 126.0
+offset_top = 84.0
+offset_right = 365.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 38
+text = "PERSONAJE 1"
+
+[node name="Personaje2" type="Node2D" parent="."]
+position = Vector2(607, 5)
+
+[node name="W" type="Label" parent="Personaje2"]
+z_index = 1
+offset_left = 191.0
+offset_top = 167.0
+offset_right = 290.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 33
+text = "Arriba
+"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje2/W"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -14.0
+offset_top = -3.0
+offset_right = 110.0
+offset_bottom = 53.0
+color = Color(0, 0, 0, 1)
+
+[node name="A" type="Label" parent="Personaje2"]
+z_index = 1
+offset_left = 107.0
+offset_top = 236.0
+offset_right = 153.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 33
+text = "Izq"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje2/A"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -7.0
+offset_top = 1.0
+offset_right = 51.0
+offset_bottom = 57.0
+color = Color(0, 0, 0, 1)
+
+[node name="D" type="Label" parent="Personaje2"]
+z_index = 1
+offset_left = 318.0
+offset_top = 236.0
+offset_right = 375.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 33
+text = "Der"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje2/D"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 65.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Personaje2"]
+offset_left = 125.0
+offset_top = 89.0
+offset_right = 364.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 38
+text = "PERSONAJE 2"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 134.0
+offset_right = 339.0
+offset_bottom = 157.0
+text = "Personaje de la Izquierda"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 146.0
+offset_right = 948.0
+offset_bottom = 169.0
+text = "Personaje de la derecha"
+
+[node name="Sfddfsfddfsdfssdfdsf" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(590.5, 335)
+scale = Vector2(0.621354, 0.640741)
+texture = ExtResource("1_a2ilm")
+
+[node name="Personaje3" type="Node2D" parent="."]
+position = Vector2(319, 214)
+
+[node name="W" type="Label" parent="Personaje3"]
+z_index = 1
+offset_left = 201.0
+offset_top = 167.0
+offset_right = 277.0
+offset_bottom = 222.0
+theme_override_font_sizes/font_size = 33
+text = "    R"
+
+[node name="ColorRect" type="ColorRect" parent="Personaje3/W"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 0
+offset_left = -14.0
+offset_top = -3.0
+offset_right = 110.0
+offset_bottom = 53.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Personaje3"]
+offset_left = 114.0
+offset_top = 96.0
+offset_right = 376.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 38
+text = "Reiniciar Nivel"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 444.0
+offset_right = 689.0
+offset_bottom = 493.0
+text = "(Tambien uselo en caso de que 
+         aparezca algun bug)"
+
+[node name="Transiciones" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="Transiciones"]
+visible = false
+z_index = 4
+offset_top = 2.0
+offset_right = 1184.0
+offset_bottom = 675.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Transiciones"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_0v44m")
+}
+autoplay = "HOLAAA??"
+
+[node name="ColorRect" type="ColorRect" parent="Transiciones"]
+visible = false
+z_index = 4
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 1175.0
+offset_bottom = 676.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transiciones"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_jrkh4")
+}
+
+[node name="Cronometro" type="Timer" parent="Transiciones"]
+one_shot = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 611.0
+offset_right = 1115.0
+offset_bottom = 634.0
+text = "El juego NO tiene musica..."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Transiciones/Cronometro" to="." method="_on_cronometro_timeout"]

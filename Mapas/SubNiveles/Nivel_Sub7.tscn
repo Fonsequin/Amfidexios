@@ -1,0 +1,161 @@
+[gd_scene load_steps=9 format=3 uid="uid://b275sgyqjgk46"]
+
+[ext_resource type="Texture2D" uid="uid://cotx2vcf05ref" path="res://SFDDFSFDDFSDFSSDFDSF.png" id="1_hmmtj"]
+
+[sub_resource type="GDScript" id="GDScript_jkr22"]
+script/source = "extends Node2D
+
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_timer_timeout():
+	$AnimationPlayer2.play(\"GZVT\")
+
+func _on_temporizador_timeout():
+	get_tree().change_scene_to_file(\"res://Mapas/Niveles/Nivel Numero 7.tscn\")
+"
+
+[sub_resource type="Animation" id="Animation_hmmtj"]
+resource_name = "GV"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Inicio:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nyk02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Inicio:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uek1i"]
+_data = {
+&"GV": SubResource("Animation_hmmtj"),
+&"RESET": SubResource("Animation_nyk02")
+}
+
+[sub_resource type="Animation" id="Animation_77r2t"]
+resource_name = "GZVT"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Final:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t6xgx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Final:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uq5yd"]
+_data = {
+&"GZVT": SubResource("Animation_77r2t"),
+&"RESET": SubResource("Animation_t6xgx")
+}
+
+[node name="Nivel 7" type="Node2D"]
+script = SubResource("GDScript_jkr22")
+
+[node name="Copiable" type="Node2D" parent="."]
+
+[node name="Temporizador" type="Timer" parent="Copiable"]
+wait_time = 1.6
+one_shot = true
+autostart = true
+
+[node name="Inicio" type="ColorRect" parent="Copiable"]
+z_index = 1
+offset_right = 1147.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="Final" type="ColorRect" parent="Copiable"]
+z_index = 1
+offset_right = 1148.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="Copiable"]
+wait_time = 1.2
+one_shot = true
+autostart = true
+
+[node name="Texto" type="Node2D" parent="."]
+
+[node name="Label2" type="Label" parent="Texto"]
+offset_left = 382.0
+offset_top = 227.0
+offset_right = 776.0
+offset_bottom = 392.0
+theme_override_colors/font_color = Color(0.999998, 0.563713, 0.500928, 1)
+theme_override_colors/font_outline_color = Color(1, 0.734189, 0.691017, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 120
+text = "Nivel 7"
+
+[node name="Sfddfsfddfsdfssdfdsf" type="Sprite2D" parent="Texto/Label2"]
+modulate = Color(1, 1, 1, 0.34902)
+z_index = -1
+position = Vector2(192, 98.75)
+scale = Vector2(0.614584, 0.629167)
+texture = ExtResource("1_hmmtj")
+
+[node name="ColorRect" type="ColorRect" parent="Texto/Label2"]
+z_index = -2
+layout_mode = 0
+offset_left = -400.0
+offset_top = -245.0
+offset_right = 795.0
+offset_bottom = 442.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uek1i")
+}
+autoplay = "GV"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uq5yd")
+}
+
+[connection signal="timeout" from="Copiable/Temporizador" to="." method="_on_temporizador_timeout"]
+[connection signal="timeout" from="Copiable/Timer" to="." method="_on_timer_timeout"]

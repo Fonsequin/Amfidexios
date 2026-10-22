@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://c86xgulj14pbv"]
+
+[ext_resource type="Script" uid="uid://b1mnlawmss16" path="res://Mapas/SubNiveles/nivel_sub_9.gd" id="1_mm1aw"]
+[ext_resource type="Texture2D" uid="uid://cotx2vcf05ref" path="res://SFDDFSFDDFSDFSSDFDSF.png" id="2_2wfna"]
+
+[sub_resource type="Animation" id="Animation_mm1aw"]
+resource_name = "GV"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Inicio:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2wfna"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Inicio:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78wa0"]
+_data = {
+&"GV": SubResource("Animation_mm1aw"),
+&"RESET": SubResource("Animation_2wfna")
+}
+
+[sub_resource type="Animation" id="Animation_4tpiy"]
+resource_name = "GZVT"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Final:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_whcjw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copiable/Final:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mktv0"]
+_data = {
+&"GZVT": SubResource("Animation_4tpiy"),
+&"RESET": SubResource("Animation_whcjw")
+}
+
+[node name="Nivel 9" type="Node2D"]
+script = ExtResource("1_mm1aw")
+
+[node name="Copiable" type="Node2D" parent="."]
+
+[node name="Temporizador" type="Timer" parent="Copiable"]
+wait_time = 1.6
+one_shot = true
+autostart = true
+
+[node name="Inicio" type="ColorRect" parent="Copiable"]
+z_index = 1
+offset_right = 1147.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="Final" type="ColorRect" parent="Copiable"]
+z_index = 1
+offset_right = 1148.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="Copiable"]
+wait_time = 1.2
+one_shot = true
+autostart = true
+
+[node name="Texto" type="Node2D" parent="."]
+
+[node name="Label2" type="Label" parent="Texto"]
+offset_left = 371.0
+offset_top = 234.0
+offset_right = 765.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(0.999996, 0.287313, 0.225242, 1)
+theme_override_colors/font_outline_color = Color(1, 0.541279, 0.476445, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 120
+text = "Nivel 9"
+
+[node name="Sfddfsfddfsdfssdfdsf" type="Sprite2D" parent="Texto/Label2"]
+modulate = Color(1, 1, 1, 0.34902)
+z_index = -1
+position = Vector2(208.5, 98.75)
+scale = Vector2(0.618229, 0.629167)
+texture = ExtResource("2_2wfna")
+
+[node name="ColorRect" type="ColorRect" parent="Texto/Label2"]
+z_index = -2
+layout_mode = 0
+offset_left = -397.0
+offset_top = -245.0
+offset_right = 793.0
+offset_bottom = 441.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_78wa0")
+}
+autoplay = "GV"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mktv0")
+}
+
+[connection signal="timeout" from="Copiable/Temporizador" to="." method="_on_temporizador_timeout"]
+[connection signal="timeout" from="Copiable/Timer" to="." method="_on_timer_timeout"]

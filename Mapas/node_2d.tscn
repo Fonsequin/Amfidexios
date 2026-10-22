@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dx4o00xowud10"]
+
+[ext_resource type="Script" uid="uid://cuy6vgq52u7ok" path="res://Mapas/node_2d.gd" id="1_6r5fq"]
+[ext_resource type="Script" uid="uid://bgnf54x00q0wm" path="res://Mapas/area_2d.gd" id="2_udvwx"]
+[ext_resource type="PackedScene" uid="uid://dmf082c84e2ks" path="res://Personajes/PERSONAJE1.tscn" id="3_udvwx"]
+[ext_resource type="PackedScene" uid="uid://cp4u1rq66o1qf" path="res://Personajes/PERSONAJE2.tscn" id="4_6r5fq"]
+[ext_resource type="Texture2D" uid="uid://lqp8dllvv87e" path="res://Puerta.png" id="4_hgvxt"]
+[ext_resource type="Script" uid="uid://l0anvqxsui4n" path="res://Personajes/area_2d.gd" id="8_orx5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r5fq"]
+size = Vector2(13, 12.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7eym"]
+size = Vector2(38.2609, 35.6666)
+
+[node name="Nivel" type="Node2D"]
+script = ExtResource("1_6r5fq")
+
+[node name="Puerta2" type="Node2D" parent="."]
+
+[node name="Puerta" type="Sprite2D" parent="Puerta2"]
+z_index = 1
+position = Vector2(627, 139)
+scale = Vector2(0.371786, 0.377293)
+texture = ExtResource("4_hgvxt")
+
+[node name="Area2D" type="Area2D" parent="Puerta2"]
+z_index = 1
+position = Vector2(75, 8)
+script = ExtResource("2_udvwx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta2/Area2D"]
+position = Vector2(544.5, 131)
+shape = SubResource("RectangleShape2D_6r5fq")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_udvwx")]
+z_index = 1
+position = Vector2(559, 302)
+scale = Vector2(1.15, 1)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("4_6r5fq")]
+z_index = 1
+position = Vector2(616, 301)
+scale = Vector2(1.15, 1)
+
+[node name="Area2D2" type="Area2D" parent="CharacterBody2D2" groups=["Player2"]]
+script = ExtResource("8_orx5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/Area2D2"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_r7eym")
+
+[node name="Tiempo" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Puerta2/Area2D" to="Puerta2/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D2/Area2D2" to="CharacterBody2D2/Area2D2" method="_on_body_entered"]
